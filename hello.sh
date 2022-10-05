@@ -15,6 +15,20 @@ help()
 	echo "V    Print the version of script"
 }
 
-help
+#####################################################################################
+# Main program of the script
+#####################################################################################
+#####################################################################################
+# This will process the input options for the script. Add options as needed.
+
+# Get options for script
+
+while getopts ":h" option; do
+	case $option in
+		h) # display help message
+		   help
+		   exit;;
+	esac
+done
 
 echo "Hello World!"
