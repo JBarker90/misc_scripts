@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [[ $(hostname -s) != "JBARKER-"* ]]; then
-    echo "False, this IS your laptop!"
+if [[ -d "/home/jonathan/test_dir/sample.txt" ]]; then
+    cat -n /home/jonathan/test_dir/sample.txt
 else
-    echo "You are not in the right place!"
+    echo "This file path does NOT exist. You may need to create one or check your file path."
 fi
