@@ -1,4 +1,6 @@
 #!/bin/bash
-if [[ $(hostname -s) == ^JBARKER-* ]]; then
+if [[ $(hostname -s) == "cloudhost-"* ]]; then
     echo "You are on a cloud server."
+else
+    echo "You are on a physical server."
 fi
