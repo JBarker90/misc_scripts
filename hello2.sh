@@ -44,5 +44,3 @@ while getopts ":hvg" option; do
            ;;
 	esac
 done
-
-#echo "Hello world!"
