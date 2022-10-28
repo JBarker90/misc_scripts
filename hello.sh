@@ -23,7 +23,7 @@ help()
 
 # Get options for script
 
-while getopts ":h:v" option; do
+while getopts ":h" option; do
 	case $option in
 		h) # display help message
 		   help
