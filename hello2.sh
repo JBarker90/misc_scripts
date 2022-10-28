@@ -7,9 +7,9 @@ VERSION=$(echo "1.2")
 help() 
 {
 	# Display Help message
-	echo "Add whatever description of the script functions on this line."
+	echo "This script prints our 'Hello World!' in a couple different ways."
 	echo 
-	echo "Syntax: <script_name> [-g|h|v|V]"
+	echo "Syntax: <hello2.sh> [-g|h|v|V]"
 	echo "options:"
 	echo "-g    Run general script."
 	echo "-h    Print this Help message."
@@ -18,7 +18,7 @@ help()
 }
 
 function usage(){
-    echo "Syntax: <script_name> [-g|h|v|V]"
+    echo "Syntax: <hello2.sh> [-g|h|v|V]"
 	echo "options:"
 	echo "-g    Run general script."
 	echo "-h    Print this Help message."
@@ -65,3 +65,6 @@ while getopts ":hvgV" option; do
            exit;;
 	esac
 done
+
+echo "Invalid syntax: no option given."
+echo "It appears no option was passed. Try running './hello2.sh -h' for more details."
