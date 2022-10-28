@@ -2,6 +2,8 @@
 
 # This will create a help function to display options for running the script.
 
+VERSION=$(echo "1.2")
+
 help() 
 {
 	# Display Help message
@@ -23,6 +25,10 @@ function main(){
     fi
 }
 
+function version(){
+    echo "hello2 version ${VERSION}"
+}
+
 #####################################################################################
 # Main program of the script
 #####################################################################################
@@ -31,7 +37,7 @@ function main(){
 
 # Get options for script
 
-while getopts ":hvg" option; do
+while getopts ":hvgV" option; do
 	case $option in
 		h) # display help message
 		   help
@@ -41,6 +47,9 @@ while getopts ":hvg" option; do
            ;;
         g) # print general message
            main
+           ;;
+        V) # print version
+           version
            ;;
 	esac
 done
