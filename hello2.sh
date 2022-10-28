@@ -11,10 +11,10 @@ help()
 	echo 
 	echo "Syntax: <script_name> [-g|h|v|V]"
 	echo "options:"
-	echo "g    Run general script."
-	echo "h    Print this Help message."
-	echo "v    Run verbose mode on script"
-	echo "V    Print the version of script"
+	echo "-g    Run general script."
+	echo "-h    Print this Help message."
+	echo "-v    Run verbose mode on script"
+	echo "-V    Print the version of script"
 }
 
 function main(){
