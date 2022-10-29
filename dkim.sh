@@ -8,7 +8,7 @@
 #   Value:	 v=DKIM1; k=rsa; p=<Key_Value>;
 
 DOMAIN=$1
-DKIM_KEY=$(cat ~/sample.txt 2>/dev/null)
+DKIM_KEY=$(cat /home/jonathan/sample.txt 2>/dev/null)
 
 help(){
     # Displays Help message
@@ -39,7 +39,7 @@ function dkim_gen(){
 }
 
 function dkim_find(){
-    if [[ -e "~/sample.txt" ]]; then
+    if [[ -e "/home/jonathan/sample.txt" ]]; then
         echo -e "\nMessage Test: ${DKIM_KEY}"
     else
         echo "It appears this file is missing. Try running: <dkim.sh> -c [<domain>]"
