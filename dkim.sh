@@ -62,4 +62,3 @@ while getopts "hc:f:" option; do
             exit;;
     esac
 done
-
