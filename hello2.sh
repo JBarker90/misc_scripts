@@ -66,5 +66,5 @@ while getopts ":hvgV" option; do
 	esac
 done
 
-echo "Invalid syntax: no option given."
-echo "It appears no option was passed. Try running './hello2.sh -h' for more details."
+#echo "Invalid syntax: no option given."
+#echo "It appears no option was passed. Try running './hello2.sh -h' for more details."
