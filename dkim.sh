@@ -8,7 +8,7 @@
 #   Value:	 v=DKIM1; k=rsa; p=<Key_Value>;
 
 DOMAIN=$1
-DKIM_KEY=$(cat -n ~/sample.txt)
+#DKIM_KEY=$(cat -n ~/sample.txt)
 
 help(){
     # Displays Help message
@@ -22,7 +22,21 @@ help(){
 	echo "-f    Finds DKIM key on server and Formats it in DNS record values."
 }
 
+function usage(){
+    echo "Syntax: <dkim.sh> [-h|c|f]"
+	echo "options:"
+	echo "-h    Print this Help message."
+	echo "-c    Create a DKIM Key for a specific domain."
+	echo "-f    Finds DKIM key on server and Formats it in DNS record values."
+}
 
+function dkim_gen(){
+    if [[ $(hostname -s) == "JBARKER"-* ]]; then
+        echo "Your domain name is ${DOMAIN} and you are on a mac!"
+    else
+        echo "It appears you are somewhere else."
+    fi
+}
 
 #####################################################################################
 # Main program of the script
@@ -43,6 +57,9 @@ while getopts ":hc:f:" option; do
         f) # Finds DKIM key and Formats in DNS value
             dkim_find
             ;;
+        \?) # If an option is given that doesn't exist
+            usage
+            exit;;
     esac
 done
 
