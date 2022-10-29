@@ -8,7 +8,7 @@
 #   Value:	 v=DKIM1; k=rsa; p=<Key_Value>;
 
 DOMAIN=$1
-#DKIM_KEY=$(cat -n ~/sample.txt)
+DKIM_KEY=$(cat ~/sample.txt 2>/dev/null)
 
 help(){
     # Displays Help message
@@ -35,6 +35,14 @@ function dkim_gen(){
         echo "Your domain name is ${DOMAIN} and you are on a mac!"
     else
         echo "It appears you are somewhere else."
+    fi
+}
+
+function dkim_find(){
+    if [[ -e "~/sample.txt" ]]; then
+        echo -e "\nMessage Test: ${DKIM_KEY}"
+    else
+        echo "It appears this file is missing. Try running: <dkim.sh> -c [<domain>]"
     fi
 }
 
