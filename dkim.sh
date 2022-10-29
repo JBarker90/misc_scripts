@@ -46,7 +46,7 @@ function dkim_gen(){
 
 # Get options for script
 
-while getopts ":hc:f:" option; do
+while getopts "hc:f:" option; do
     case $option in
         h) # Displays help message
             help
@@ -63,5 +63,3 @@ while getopts ":hc:f:" option; do
     esac
 done
 
-#echo "Invalid syntax: no option given."
-#echo "It appears no option was passed. Try running './hello2.sh -h' for more details."
