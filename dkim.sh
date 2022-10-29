@@ -7,6 +7,9 @@
 #   Host:	 default._domainkey.domain.com
 #   Value:	 v=DKIM1; k=rsa; p=<Key_Value>;
 
+DOMAIN=$1
+DKIM_KEY=$(cat -n ~/sample.txt)
+
 help(){
     # Displays Help message
     echo "This bash script can be used to check if a DKIM key exists for a domain and generate one if needed."
@@ -18,6 +21,7 @@ help(){
 	echo "-c    Create a DKIM Key for a specific domain."
 	echo "-f    Finds DKIM key on server and Formats it in DNS record values."
 }
+
 
 
 #####################################################################################
@@ -41,3 +45,6 @@ while getopts ":hc:f:" option; do
             ;;
     esac
 done
+
+echo "Invalid syntax: no option given."
+echo "It appears no option was passed. Try running './hello2.sh -h' for more details."
