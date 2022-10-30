@@ -31,7 +31,7 @@ function usage(){
 }
 
 function dkim_gen(){
-    if [[ -e "/home/jonathan/sample.txt" ]]; then
+    if [[ -e "/Users/jbarker/sample.txt" ]]; then
         if [[ $(hostname -s) == "JBARKER"-* ]]; then
             echo "sudo -u iworx ~iworx/bin/domainkeys.pex --domain $DOMAIN"
         else
