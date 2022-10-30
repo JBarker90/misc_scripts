@@ -7,7 +7,7 @@
 #   Host:	 default._domainkey.domain.com
 #   Value:	 v=DKIM1; k=rsa; p=<Key_Value>;
 
-DOMAIN=$1
+DOMAIN=$2
 DKIM_KEY=$(cat /home/jonathan/sample.txt 2>/dev/null)
 
 help(){
@@ -32,9 +32,9 @@ function usage(){
 
 function dkim_gen(){
     if [[ $(hostname -s) == "JBARKER"-* ]]; then
-        echo "Your domain name is ${DOMAIN} and you are on a mac!"
+        echo "sudo -u iworx ~iworx/bin/domainkeys.pex --domain $DOMAIN"
     else
-        echo "It appears you are somewhere else."
+        echo "~iworx/bin/domainkeys.pex --domain $DOMAIN"
     fi
 }
 
