@@ -31,10 +31,15 @@ function usage(){
 }
 
 function dkim_gen(){
-    if [[ $(hostname -s) == "JBARKER"-* ]]; then
-        echo "sudo -u iworx ~iworx/bin/domainkeys.pex --domain $DOMAIN"
+    if [[ -e "/home/jonathan/sample.txt" ]]; then
+        if [[ $(hostname -s) == "JBARKER"-* ]]; then
+            echo "sudo -u iworx ~iworx/bin/domainkeys.pex --domain $DOMAIN"
+        else
+            echo "~iworx/bin/domainkeys.pex --domain $DOMAIN"
+        fi
     else
-        echo "~iworx/bin/domainkeys.pex --domain $DOMAIN"
+        echo "It appears this file is missing. Try running: <dkim.sh> -c [<domain>]"
+        exit;
     fi
 }
 
