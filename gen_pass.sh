@@ -16,11 +16,18 @@ usage(){
     exit 1
 }
 
+log(){
+    local MESSAGE="${@}"
+    if [[ "${VERBOSE}" = 'true' ]]; then
+        echo "${MESSAGE}"
+    fi
+}
+
 while getopts 'vl:s' OPTION; do
     case ${OPTION} in
         v)
           VERBOSE='true'
-          echo 'Verbose mode on.'
+          log 'Verbose mode on.'
           ;;
         l)
           LENGTH="${OPTARG}"
@@ -33,3 +40,5 @@ while getopts 'vl:s' OPTION; do
           ;;
     esac
 done
+
+log 'Generating a password.'
