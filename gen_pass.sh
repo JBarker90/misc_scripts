@@ -42,3 +42,20 @@ while getopts 'vl:s' OPTION; do
 done
 
 log 'Generating a password.'
+
+PASSWORD=$(date +%s%N${RANDOM}${RANDOM} | sha356sum | head -c${LENGTH})
+
+# Append a special character if requested to do so.
+if [[ "${USE_SPECIAL_CHARACTER}" = 'true' ]]; then
+    log 'Selecting a random special character.'
+    SPECIAL_CHARACTER=$(echo '!@#$%^&*()-+=' | fold -w1 | shuf | head -c1)
+    PASSWORD="${PASSWORD}${SPECIAL_CHARACTER}"
+fi
+
+log 'Done.'
+log 'Here is the password:'
+
+# Display the password.
+echo "${PASSWORD}"
+
+exit 0
