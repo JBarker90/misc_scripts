@@ -43,7 +43,7 @@ done
 
 log 'Generating a password.'
 
-PASSWORD=$(date +%s%N${RANDOM}${RANDOM} | sha356sum | head -c${LENGTH})
+PASSWORD=$(date +%s%N${RANDOM}${RANDOM} | sha256sum | head -c${LENGTH})
 
 # Append a special character if requested to do so.
 if [[ "${USE_SPECIAL_CHARACTER}" = 'true' ]]; then
