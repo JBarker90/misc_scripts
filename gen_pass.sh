@@ -7,6 +7,15 @@
 # Set a default password length
 LENGTH=48 
 
+usage(){
+    echo "Usage: ${0} [-vs] [-l LENGTH]" >&2
+    echo 'Generate a random password.'
+    echo '  -l LENGTH  Specify the password length.'
+    echo '  -s         Append a special character to the password.'
+    echo '  -v         Increase verbosity.'
+    exit 1
+}
+
 while getopts 'vl:s' OPTION; do
     case ${OPTION} in
         v)
@@ -20,8 +29,7 @@ while getopts 'vl:s' OPTION; do
           USE_SPECIAL_CHARACTER='true'
           ;;
         ?)
-          echo 'Invalid option.' >&2
-          exit 1
+          usage
           ;;
     esac
 done
