@@ -47,6 +47,8 @@ echo "First arg: ${1}"
 echo "Second arg: ${2}"
 echo "Third arg: ${3}"
 
+# Inspect OPTIND
+echo "OPTIND: ${OPTIND}"
 
 log 'Generating a password.'
 
