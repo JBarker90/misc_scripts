@@ -41,6 +41,13 @@ while getopts 'vl:s' OPTION; do
     esac
 done
 
+echo "Number of args: ${#}"
+echo "All args: ${@}"
+echo "First arg: ${1}"
+echo "Second arg: ${2}"
+echo "Third arg: ${3}"
+
+
 log 'Generating a password.'
 
 PASSWORD=$(date +%s%N${RANDOM}${RANDOM} | sha256sum | head -c${LENGTH})
